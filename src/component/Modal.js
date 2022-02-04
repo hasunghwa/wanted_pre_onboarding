@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   height: 100%;
 `;
 
-const Modal = styled.div`
+const Modaldiv = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -36,27 +36,24 @@ const Modal = styled.div`
   background-color: white;
 `;
 
-function Toggle(){
+function Modal(){
   const [value, setValue] = useState(false);
   const handleModal = () =>{
     setValue(prev => !prev);
   }
-  useEffect(() => {
-    console.log(value);
-  }, [value])
   return (
     <>
       <Button onClick={handleModal}>Open Modal</Button>
       {value ? (
         <Wrapper>
-          <Modal>
-            <span onClick={handleModal} style={{position: "absolute", top:20 ,cursor:"pointer"}}>x</span>
+          <Modaldiv>
+            <span onClick={handleModal} style={{position: "absolute", top:10 ,cursor:"pointer"}}>x</span>
             <p style={{color: "blue"}}>HELLO CODESTATES!</p>
-          </Modal>
+          </Modaldiv>
         </Wrapper>
       ) : null
       }
     </>
   );
 }
-export default Toggle;
+export default Modal;

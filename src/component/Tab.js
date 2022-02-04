@@ -14,6 +14,7 @@ const Menu = styled.li`
   align-items: center;
   white: 100%;
   height: 100%;
+  padding-left: 5px;
   cursor: pointer;
   flex-grow: 1;
   color: rgba(0, 0, 0, 0.3);
@@ -26,7 +27,10 @@ function Tab(){
     <>
       <Menus>
         {tabName[0].map((tab, index) => 
-          <Menu style={{backgroundColor: value===index ? "blue" : "" }} onClick={() => setValue(index)}>Tab{index+1}</Menu>
+          <Menu style={{ 
+            backgroundColor: value===index ? "blue" : "", 
+            color: value===index ? "white" : "" 
+          }} onClick={() => setValue(index)}>Tab{index+1}</Menu>
         )}
       </Menus>
       <p>Tab menu {tabName[0][value]}</p>
