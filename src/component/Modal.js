@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -12,6 +12,7 @@ const Button = styled.button`
 `;
 
 const Wrapper = styled.div`
+  z-index: 99;
   position: fixed;
   left: 0;
   top: 0;

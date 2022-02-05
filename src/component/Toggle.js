@@ -39,6 +39,7 @@ function Toggle(){
     labelRef.current.style.backgroundColor = value? "blue" : "gray";
     spanRef.current.style.left = value? "52px" : "0px";
   },[value])
+  
   return(
     <>
       <ToggleButton id="toggle" type="checkbox" onChange={onClickToggle}/>

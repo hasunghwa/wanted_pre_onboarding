@@ -10,7 +10,7 @@ const Input = styled.input`
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
-  box-sizing: border-box; // 크기 안커짐!
+  box-sizing: border-box; 
 `;
 
 const Tagsdiv = styled.div`
@@ -48,6 +48,7 @@ function Tag() {
   const [tags, setTags] = useState([]);
   const TagRef= useRef();
   const InputRef= useRef();
+  
   const submitTag = (event) => {
     event.preventDefault(); 
     if(event.target[0].value === "") return;
@@ -58,6 +59,7 @@ function Tag() {
     });
     setValue("");
   };
+
   const deleteTag = (index) => {
     setTags(prev => {
       const copy = Array.from(prev);
@@ -65,19 +67,28 @@ function Tag() {
       return copy;
     });
   };
+
   useEffect(() => {
     InputRef.current.style.paddingLeft = (TagRef.current.clientWidth+5)+"px";
   }, [tags]);
+
   return (
     <>
-      <Form onSubmit={submitTag}><Tagsdiv ref={TagRef}>
-        {tags.map((value, index) => 
-          <Tagdiv>
-            {value}
-            <Xbutton onClick={() => deleteTag(index)} >x</Xbutton>
-          </Tagdiv>
-        )}</Tagsdiv>
-        <Input ref={InputRef} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Press enter to add tags"/>        
+      <Form onSubmit={submitTag}>
+        <Tagsdiv ref={TagRef}>
+          {tags.map((value, index) => 
+            <Tagdiv>
+              {value}
+              <Xbutton onClick={() => deleteTag(index)}>x</Xbutton>
+            </Tagdiv>
+          )}
+        </Tagsdiv>
+        <Input 
+          ref={InputRef} 
+          value={value} 
+          onChange={(e) => setValue(e.target.value)} 
+          placeholder="Press enter to add tags"
+        />        
       </Form>
     </>
   );
