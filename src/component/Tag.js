@@ -73,24 +73,22 @@ function Tag() {
   }, [tags]);
 
   return (
-    <>
-      <Form onSubmit={submitTag}>
-        <Tagsdiv ref={TagRef}>
-          {tags.map((value, index) => 
-            <Tagdiv>
-              {value}
-              <Xbutton onClick={() => deleteTag(index)}>x</Xbutton>
-            </Tagdiv>
-          )}
-        </Tagsdiv>
-        <Input 
-          ref={InputRef} 
-          value={value} 
-          onChange={(e) => setValue(e.target.value)} 
-          placeholder="Press enter to add tags"
-        />        
-      </Form>
-    </>
+    <Form onSubmit={submitTag}>
+      <Tagsdiv ref={TagRef}>
+        {tags.map((value, index) => 
+          <Tagdiv>
+            {value}
+            <Xbutton onClick={() => deleteTag(index)}>x</Xbutton>
+          </Tagdiv>
+        )}
+      </Tagsdiv>
+      <Input 
+        ref={InputRef} 
+        value={value} 
+        onChange={(e) => setValue(e.target.value)} 
+        placeholder="Press enter to add tags"
+      />        
+    </Form>
   );
 }
 export default Tag;

@@ -17,6 +17,7 @@ function ClickToEdit() {
   const [age, setAge] = useState(20);
   const nameRef = useRef();
   const ageRef = useRef();
+  
   useEffect(() => {
     if(nameRef.current.value !== name)
       nameRef.current.value = name;
@@ -25,14 +26,14 @@ function ClickToEdit() {
   },[name, age]);
 
   return (
-    <>
+    <div style={{textAlign: "center"}}>
       <Label>이름</Label>
       <Input ref={nameRef} onBlur={(e) => setName(e.target.value)}/>
       <br />
       <Label>나이</Label>
       <Input ref={ageRef} onBlur={(e) => setAge(e.target.value)}/>
       <p>이름 {name} 나이 {age}</p>
-    </>
+    </div>
   )
 }
 

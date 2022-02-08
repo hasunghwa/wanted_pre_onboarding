@@ -23,8 +23,9 @@ const Menu = styled.li`
 function Tab(){
   const [value, setValue] = useState(0);
   const tabName = useState(["ONE", "TWO", "THREE"]);
+  
   return (
-    <>
+    <div style={{textAlign: "center"}}>
       <Menus>
         {tabName[0].map((tab, index) => 
           <Menu 
@@ -39,7 +40,7 @@ function Tab(){
         )}
       </Menus>
       <p>Tab menu {tabName[0][value]}</p>
-    </>
+    </div>
   );
 }
 export default Tab;

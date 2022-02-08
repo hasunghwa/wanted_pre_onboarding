@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   div:nth-child(2) {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
-
 `;
 
 const Input = styled.input`
@@ -21,7 +20,8 @@ const Input = styled.input`
   padding-left: 10px;
   border-radius: 10px;
   height: 40px;
-  
+  font-size: 0.8rem;
+
   &:focus{
     outline: none;
   }
@@ -29,8 +29,8 @@ const Input = styled.input`
 
 const Xbutton = styled.button`
   position: absolute;
-  top: 30%;
-  right: 2%;
+  top: 13px;
+  right: 10px;
   z-index: 98;
   border: none;
   background-color: white;
@@ -40,7 +40,8 @@ const Xbutton = styled.button`
 const Suggestion = styled.div`
   padding-left: 10px;
   margin-bottom: 10px;
-  
+  font-size: 0.8rem;
+
   &:hover{
     background-color: rgba(0, 0, 0, 0.2);
   }
@@ -54,6 +55,7 @@ function AutoCompele(){
   const handleShadow = (isShadow) => {
     wrapperRef.current.style.boxShadow= isShadow ? "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px" : "";
   }
+  
   useEffect(() => {
     setSuggestions([]);
     if(!search) return;
