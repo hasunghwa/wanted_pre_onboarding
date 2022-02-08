@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const ToggleButton = styled.input`
   display: none;
@@ -9,45 +9,47 @@ const Label = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
-  width: 100px;
+  width: 120px;
   height: 50px;
-  background-color: "gray";
-  border-radius: 100px;
+  border-radius: 120px;
+  background-color: gray;
   position: relative;
-  transition: .2s linear;
+  overflow: hidden;
+
+  ::after {
+    content: "";
+    height: 50px;
+    background-color: blue;
+    width: ${(props) => props.value ? "120px": "0" };
+    transition: 0.3s linear;
+  }
 `;
 
 const Span = styled.span`
   position: absolute;
-  margin-left: 4px;
-  width: 40px;
-  height: 40px;
+  margin-left: 8px;
+  width: 30px;
+  height: 30px;
   border-radius: 40px;
-  transition: .5s;
+  transition: 0.3s linear;
   background-color: white;
+  left: ${(props) => props.value ? "76px": "0" };
 `;
 
 function Toggle(){
   const [value, setValue] = useState(false);
-  const labelRef = useRef();
-  const spanRef = useRef();
   const onClickToggle = (e) => {
     setValue(prev => !prev);
   };
   
-  useEffect(() => {
-    labelRef.current.style.backgroundColor = value? "blue" : "gray";
-    spanRef.current.style.left = value? "52px" : "0px";
-  },[value])
-  
   return(
-    <>
+    <div style={{textAlign: "center"}}>
       <ToggleButton id="toggle" type="checkbox" onChange={onClickToggle}/>
-      <Label ref={labelRef} htmlFor="toggle">
-        <Span ref={spanRef}></Span>
+      <Label htmlFor="toggle" value={value}>
+        <Span value={value}></Span>
       </Label>
       <p>Toggle Switch {value? "ON" : "OFF"}</p>
-    </>
+    </div>
   );
 }
 
