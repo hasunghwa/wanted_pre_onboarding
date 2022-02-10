@@ -17,13 +17,13 @@ function ClickToEdit() {
   const [age, setAge] = useState(20);
   const nameRef = useRef();
   const ageRef = useRef();
-  
+
   useEffect(() => {
     if(nameRef.current.value !== name)
       nameRef.current.value = name;
     if(ageRef.current.value !== age)
       ageRef.current.value = age;
-  },[name, age]);
+  }, [name, age]);
 
   return (
     <div style={{textAlign: "center"}}>

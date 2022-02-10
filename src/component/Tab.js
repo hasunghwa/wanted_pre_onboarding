@@ -18,16 +18,17 @@ const Menu = styled.li`
   cursor: pointer;
   flex-grow: 1;
   color: rgba(0, 0, 0, 0.3);
+  transition: 0.5s linear;
 `;
 
 function Tab(){
   const [value, setValue] = useState(0);
   const tabName = useState(["ONE", "TWO", "THREE"]);
-  
+
   return (
     <div style={{textAlign: "center"}}>
       <Menus>
-        {tabName[0].map((tab, index) => 
+        {tabName[0].map((index) => 
           <Menu 
             style={{ 
               backgroundColor: value===index ? "blue" : "", 

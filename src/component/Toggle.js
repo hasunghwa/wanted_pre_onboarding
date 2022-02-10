@@ -16,7 +16,7 @@ const Label = styled.label`
   position: relative;
   overflow: hidden;
 
-  ::after {
+  ::before {
     content: "";
     height: 50px;
     background-color: blue;

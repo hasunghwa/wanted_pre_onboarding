@@ -69,9 +69,9 @@ function AutoCompele(){
       setLine(0);
       return
     };
-    setLine(1);
     words.map((word) => {
       if(word.includes(search.toUpperCase()) || word.includes(search.toLowerCase())){
+        setLine(1);
         setSuggestions(prev => {
           const copy = Array.from(prev);
           copy.push(word);

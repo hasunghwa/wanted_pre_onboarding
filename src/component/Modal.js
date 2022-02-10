@@ -42,7 +42,7 @@ function Modal(){
   const handleModal = () =>{
     setValue(prev => !prev);
   }
-  
+
   return (
     <>
       <Button onClick={handleModal}>Open Modal</Button>
